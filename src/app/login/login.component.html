@@ -1,0 +1,30 @@
+
+<div class="container spacer">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="alert alert-danger" *ngIf="mode==1">
+      <strong > Erreur d'authentification</strong>
+    </div>
+    <div class="card">
+      <div class="card-header text-white bg-primary">Authentification</div>
+      <div class="card-body">
+        <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+          <div class="form-group">
+            <label class="control-label">Email</label>
+            <input class="form-control" ngModel="" type="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Password</label>
+            <input class="form-control" ngModel="" type="password" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-danger">Login</button>
+          <!--<button class="btn btn-success">Inscription</button>-->
+
+        </form>
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>

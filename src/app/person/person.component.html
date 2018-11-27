@@ -1,0 +1,44 @@
+<div class="card spacer">
+  <h3 class="card-header bg-info">Liste des personnes</h3>
+  <div class="card-body">
+<!--
+    <button class="btn btn-info spacer" (click)="onNewUser()" *ngIf="authService.isAdmin()">Nouveau Utilisateur</button>
+-->
+    <table class="table table-striped spacer">
+      <tr>
+        <th>ID</th>
+        <th>Prenom</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <!--<th>Lieu</th-->
+      </tr>
+
+      <tr *ngFor="let c of pagePerson let i=index" attr.data-index="i">
+        <td>{{i+1}}</td>
+        <td>{{c.firstname}}</td>
+        <td>{{c.lastname}}</td>
+        <td>{{c.email}}</td>
+
+        <td>
+
+          <a (click)="onDetailPerson(c.id)" class="btn btn-info">Detail</a>
+
+        </td>
+        <td>
+
+          <a (click)="onEditPerson(c.id)" class="btn btn-info">Edit</a>
+
+        </td>
+        <td>
+
+          <a (click)="onDeletePerson(c)" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+</div>
+

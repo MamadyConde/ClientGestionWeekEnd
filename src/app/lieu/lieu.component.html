@@ -1,0 +1,17 @@
+<div class="card spacer">
+  <h3 class="card-header bg-info">Liste Lieu </h3>
+  <div class="card-body">
+
+    <table class="table table-striped">
+      <tr>
+        <th>ID</th>
+        <th>Ville</th>
+      </tr>
+      <tr *ngFor="let l of pageLieu">
+        <td>{{l.id}}</td>
+        <td>{{l.city}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+

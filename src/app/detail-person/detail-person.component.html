@@ -1,0 +1,43 @@
+<div class="card spacer center">
+  <h3 class="card-header bg-info">Information {{addperson.firstname}} </h3>
+  <div class="card-body col-sm-6">
+    <div>
+      <div *ngIf="mode==2" class="alert alert-danger">
+        <label class="control-label">  Vous êtes déjà Inscrit </label>
+      </div>
+      <div class="form-group">
+        <label class="control-label font-weight-bold"> Prenom : </label>
+        <span>{{addperson.firstname}}</span>
+      </div>
+      <div class="form-group">
+        <label class="control-label font-weight-bold"> Nom : </label>
+        <span>{{addperson.lastname}}</span>
+      </div>
+      <div class="form-group">
+        <label class="control-label font-weight-bold"> email : </label>
+        <span>{{addperson.email}}</span>
+      </div>
+      <div class="form-group">
+        <label class="control-label font-weight-bold"> Sport : </label>
+        <div  *ngFor="let sport of addperson.sports">
+          <span class="ecart">{{sport.name}} </span>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label class="control-label font-weight-bold"> Lieu :</label>
+
+        <div  *ngFor="let locality of addperson.locality">
+          <span class="ecart">{{locality.city}} </span>
+        </div>
+
+      </div>
+
+      <span (click)="onEditPerson(addperson.id)" class="btn btn-info">Edit</span>  <!-- ou routerlink-->
+
+      <span (click)="onDeletePerson(addperson)" class="btn btn-danger ecarte">Delete</span>  <!-- ou routerlink-->
+
+    </div>
+  </div>
+</div>

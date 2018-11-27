@@ -1,0 +1,20 @@
+<div class="col-md-6">
+  <h2 class="text-center">Nouveau Sport</h2>
+  <form [formGroup]="addForm" (ngSubmit)="SaveSport()">
+
+    <div class="form-group">
+      <label for="name">Nom :</label>
+      <input formControlName="name" placeholder="Nom" name="Name" class="form-control" id="Name" required>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label"> Lieu </label>
+      <select multiple class="custom-select" formControlName="locality" required="">
+
+        <option *ngFor="let l of pageLieu" value="{{l.id}}">{{l.city}}</option>
+      </select>
+    </div>
+
+    <button class="btn btn-success">Save</button>
+  </form>
+</div>

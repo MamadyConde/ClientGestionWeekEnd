@@ -1,0 +1,20 @@
+<div class="card spacer">
+  <h3 class="card-header bg-info">Modification personne</h3>
+  <div class="card-body">
+    <form [formGroup]="Formeditsport" (ngSubmit)=" updateSport(Formeditsport)">
+      <div class="form-group">
+        <label class="control-label"> Sport </label>
+        <input class="form-control" type="text" formControlName="name" [(ngModel)]="addsport.name" required=""/>
+      </div>
+      <div class="form-group">
+        <label class="control-label"> Lieu </label>
+        <select class="custom-select" formControlName="locality" [(ngModel)]="addsport.locality" required="" multiple>
+          <option *ngFor="let lieu of pageLieu" [value]="lieu.id" selected="true">{{lieu.city}}</option>
+        </select>
+
+      </div>
+      <button class="btn btn-primary">Valider</button>
+
+    </form>
+  </div>
+</div>

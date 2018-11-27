@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+.spacer {
+  margin-top: 40px; /* define margin as you see fit */
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; /* largeur obligatoire pour être centré */
+}
+.ecart {
+  margin-left: 40px;
+}
+.ecarte {
+  margin-left: 10px;
+}

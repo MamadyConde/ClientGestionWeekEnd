@@ -1,0 +1,36 @@
+<div class="card spacer">
+<h3 class="card-header bg-info">Liste des Sports</h3>
+<div class="card-body">
+
+
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Lieu</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let c of pageSport">
+      <td>{{c.id}}</td>
+      <td>{{c.name}}</td>
+      <td>
+    <tr *ngFor="let lo of c.locality">
+      {{lo.city}}
+    </tr>
+    </td>
+    <td>
+
+
+      <a (click)="onEditSport(c.id)" class="btn btn-info">Edit</a>
+
+    </td>
+
+    <td>
+
+      <a (click)="onDeleteSport(c)" class="btn btn-danger">Delete</a>
+    </td>
+    </tr>
+  </table>
+</div>
+</div>
