@@ -28,8 +28,6 @@ export class CreatePersonComponent implements OnInit {
     });
   }
   savePerson(){
-    console.log(this.addperson);
-  console.log("create ",this.Formaddperson.value)
 
     this.personService.createPerson(this.Formaddperson.value)
       .subscribe((data:any)=>{
@@ -38,6 +36,7 @@ export class CreatePersonComponent implements OnInit {
             this.mode=2;
           }
           this.router.navigate(['login']);
+          alert("Incription Enregistrée \n Vous pouvez maintenant vous connectez")
         },err=>{
 
         }

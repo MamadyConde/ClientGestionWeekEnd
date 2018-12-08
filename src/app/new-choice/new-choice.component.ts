@@ -87,73 +87,36 @@ export class NewChoiceComponent implements OnInit {
 
   }
   updateChoice() {
-    console.log("eeee",this.addperson.sports)
-    console.log(" form ",this.Formeditperson.value)
-    console.log(" did ",this.idPerson)
+
     this.personService.oneperson(this.idPerson)
       .subscribe((sportList:any) => {
           this.currentListSport = sportList.sports;
           this.currentListLocality = sportList.locality;
 
-          console.log("list sport recu ",this.currentListSport)
-          console.log("list locality recup ", this.currentListLocality)
-
-          console.log("long sport",this.currentListSport.length)
-          console.log("long Loc ",this.currentListLocality.length)
 
           for(var i = 0;i<this.currentListSport.length;i++) {
-            //for (var i in this.currentListSport){
-            //console.log("totot ",this.currentListSport[i].id)
 
             this.recupSport.push(this.currentListSport[i].id)
-            console.log("recup spofin", this.recupSport)
-            console.log(" compare celui du form ", this.Formeditperson.value.sports)
 
             for (var l = 0; l < this.currentListLocality.length; l++) {
-             // console.log("long ", this.currentListLocality.length)
-              // for (var l in this.currentListLocality) {
               this.recupLocality.push(this.currentListLocality[l].id)
-              console.log("recup loca fin ", this.recupLocality)
-              console.log(" voir2222 loc ", this.Formeditperson.value.locality)
-
-/*
-              if (this.recupSport.length == 0) {
-                this.recupSport.push(this.currentListSport[i].id)
-              } else {
-
-              for (var v = 0; v <this.recupSport.length; v++) {
-                console.log("value ", v)
-                if (v != this.currentListSport[i].id) {
-                  this.recupSport.push(this.currentListSport[i].id)
-                }
-              }
-            }*/
-
 
             }
           }
 
               let missingSport = this.Formeditperson.value.sports.filter(item => this.recupSport.indexOf(item) < 0);
-              console.log("missing ", missingSport);
               if (missingSport.length > 0) {
 
                 var ensSport = this.recupSport.concat(this.Formeditperson.value.sports)
-                console.log("concat sport ", ensSport)
 
                 var ensLocality = this.recupLocality.concat(this.Formeditperson.value.locality)
-                console.log("concat locality ", ensLocality)
-
 
                 const sportId = ensSport.map(items => Object.assign({id: items}));
                 this.Formeditperson.value.sports = sportId;
 
-                console.log("final sport ", this.Formeditperson.value.sports)
-
                 const lieuId = ensLocality.map(item => Object.assign({id: item}));
                 this.Formeditperson.value.locality = lieuId;
-                console.log(" final Lieu ", this.Formeditperson.value.locality)
 
-                console.log(" per env ", this.Formeditperson.value)
 
                 this.personService.updatePerson(this.Formeditperson.value)
                   .subscribe((data:any) => {
