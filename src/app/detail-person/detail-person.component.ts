@@ -61,6 +61,10 @@ export class DetailPersonComponent implements OnInit {
         }
       );
   }
+  onNewChoice(id:number){
+    this.router.navigate(['newChoice',id]);  //remplace routerlink
+
+  }
   onEditPerson(id:number){
     this.router.navigate(['editPerson',id]);  //remplace routerlink
   }

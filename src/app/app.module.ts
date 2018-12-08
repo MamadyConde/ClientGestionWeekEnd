@@ -20,17 +20,21 @@ import {sportService} from '../service/sportService';
 import { NewSportComponent } from './new-sport/new-sport.component';
 import { EditSportComponent } from './edit-sport/edit-sport.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
+import { CreatePersonComponent } from './create-person/create-person.component';
+import { NewChoiceComponent } from './new-choice/new-choice.component';
 
 const appRoutes:Routes =[
   {path:'home',component:HomeComponent},
   {path:'person',component:PersonComponent},
   {path:'login',component:LoginComponent},
   {path:'new-person',component:NewPersonComponent},
+  {path:'create-person',component:CreatePersonComponent},
   {path:'lieu',component:LieuComponent},
   {path:'new-lieu',component:NewLieuComponent},
   {path:'sport',component:SportComponent},
   {path:'new-sport',component:NewSportComponent},
   {path:'editSport/:id',component:EditSportComponent},
+  {path:'newChoice/:id',component:NewChoiceComponent},
   {path:'detailPerson/:id',component:DetailPersonComponent},
   {path:'editPerson/:id',component:EditPersonComponent},
   {path:'',redirectTo:'/login',pathMatch:'full'}
@@ -49,7 +53,9 @@ const appRoutes:Routes =[
     SportComponent,
     NewSportComponent,
     EditSportComponent,
-    EditPersonComponent
+    EditPersonComponent,
+    CreatePersonComponent,
+    NewChoiceComponent
   ],
   imports: [
     BrowserModule,RouterModule.forRoot(appRoutes),HttpClientModule,FormsModule,ReactiveFormsModule

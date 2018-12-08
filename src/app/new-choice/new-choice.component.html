@@ -1,26 +1,28 @@
 <div class="card spacer">
-  <h3 class="card-header bg-info">Modification personne</h3>
+  <h3 class="card-header bg-info">Choisir Nouveau Sport et Lieu</h3>
   <div class="card-body">
-    <form [formGroup]="Formeditperson" (ngSubmit)=" updatePerson(Formeditperson)">
+    <form [formGroup]="Formeditperson" (ngSubmit)=" updateChoice(Formeditperson)">
       <div *ngIf="mode==2" class="alert alert-danger">
-        <label class="control-label">  Vous êtes déjà Inscrit </label>
+        <label class="control-label">  Vous êtes déjà Inscrit à ce sport </label>
       </div>
       <div class="form-group">
         <label class="control-label"> Prenom </label>
-        <input class="form-control" type="text" formControlName="firstname" [(ngModel)]="addperson.firstname" required=""/>
+        <input class="form-control" type="text" formControlName="firstname" [(ngModel)]="addperson.firstname" required="" disabled="disabled"/>
+
       </div>
       <div class="form-group">
         <label class="control-label"> Nom </label>
-        <input class="form-control" type="text" formControlName="lastname" [(ngModel)]="addperson.lastname" required=""/>
+        <input class="form-control" type="text" formControlName="lastname" [(ngModel)]="addperson.lastname" required="" disabled="disabled"/>
+
       </div>
       <div class="form-group">
         <label class="control-label"> email </label>
-        <input class="form-control" type="text" formControlName="email" [(ngModel)]="addperson.email" required=""/>
+        <input class="form-control" type="text" formControlName="email" [(ngModel)]="addperson.email" required="" disabled="disabled"/>
       </div>
       <div class="form-group">
         <label class="control-label"> Sport </label>
         <select class="custom-select" formControlName="sports" [(ngModel)]="addperson.sports" required="" multiple>
-          <option *ngFor="let sp of pageSport" [value]="sp.id" selected="true">{{sp.name}}</option>
+          <option *ngFor="let sp of pageSport" [value]="sp.id">{{sp.name}}</option>
         </select>
 
 
@@ -36,7 +38,6 @@
         </select>
       </div>
       <input type="text" formControlName="password" [(ngModel)]="addperson.password" type="hidden">
-
       <button class="btn btn-primary">Valider</button>
 
     </form>

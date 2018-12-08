@@ -48,6 +48,9 @@ export class personService {
         'Authorization': this.authservice.loadToken()
       })
     })
+  } createPerson(addPerson:Addperson){
+    console.log(" servi ",addPerson)
+    return this.https.post('http://localhost:8080/Person/Add', addPerson,)
   }
   recup(email:string){
     return this.https.get(this.host+'/Person/Chercher/'+email,{

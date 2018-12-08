@@ -16,7 +16,7 @@ export class EditPersonComponent implements OnInit {
   addperson: Addperson = new Addperson();
   pageLieu: any;
   pageSport: any;
-  idContact: number;
+  idPerson: number;
   currentSportlocalityList:any;
 
 
@@ -26,7 +26,7 @@ export class EditPersonComponent implements OnInit {
   constructor(public lieuService: lieuService, public sportService: sportService,
               public activaterRoute: ActivatedRoute, public personService: personService,
               public router: Router,private formBuilder: FormBuilder) {
-    this.idContact = activaterRoute.snapshot.params['id'];
+    this.idPerson = activaterRoute.snapshot.params['id'];
 
   }
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
@@ -51,7 +51,7 @@ export class EditPersonComponent implements OnInit {
 
       });
 
-    this.personService.oneperson(this.idContact)
+    this.personService.oneperson(this.idPerson)
       .subscribe((data:any) => {
           this.addperson = data;
         }, err => {
@@ -60,10 +60,11 @@ export class EditPersonComponent implements OnInit {
       );
 
     this.Formeditperson = this.formBuilder.group({
-      id: [this.idContact],
+      id: [this.idPerson],
       firstname: ['', Validators.compose([Validators.required,Validators.minLength(1)])],
       lastname: ['',Validators.compose([Validators.required,Validators.minLength(1)])],
       email: ['', [Validators.required,Validators.email,Validators.pattern(this.emailPattern)]],
+      password:['',Validators.required],
       sports: [ '',Validators.required],
       locality: [ '',Validators.required],
     });
@@ -79,7 +80,7 @@ export class EditPersonComponent implements OnInit {
 
   }
   updatePerson() {
-    console.log("eeee",this.addperson.sports)
+    console.log("eeee",this.Formeditperson.value)
     const lieuId = this.Formeditperson.value.locality.map(item=>Object.assign({id:item}));
     this.Formeditperson.value.locality = lieuId;
     //this.Formeditperson.value.sports = [{id: this.Formeditperson.value.sports}];
@@ -89,9 +90,9 @@ export class EditPersonComponent implements OnInit {
 
 
     this.personService.updatePerson(this.Formeditperson.value)
-      .subscribe(data => {
+      .subscribe((data:any) => {
           alert('Modification effectuée');
-          this.router.navigate(['person']);
+          this.router.navigate(['detailPerson',data.id]);
         }, err => {
           console.log(err);
           alert('problème');

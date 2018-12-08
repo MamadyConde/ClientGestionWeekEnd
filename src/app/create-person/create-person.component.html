@@ -1,0 +1,32 @@
+<div class="card spacer">
+  <h3 class="card-header bg-info">Inscription personne</h3>
+  <div class="card-body">
+    <form [formGroup]="Formaddperson" (ngSubmit)="savePerson(Formaddperson)">
+      <div *ngIf="mode==2" class="alert alert-danger">
+        <label class="control-label">  Vous êtes déjà Inscrit </label>
+      </div>
+      <div class="form-group">
+        <label class="control-label"> Prenom </label>
+        <input class="form-control" type="text" formControlName="firstname" required=""/>
+      </div>
+      <div class="form-group">
+        <label class="control-label"> Nom </label>
+        <input class="form-control" type="text" formControlName="lastname" required=""/>
+      </div>
+      <div class="form-group">
+        <label class="control-label"> Email </label>
+        <input class="form-control" type="email" formControlName="email" required=""/>
+      </div>
+      <div class="form-group">
+        <label class="control-label"> Password </label>
+        <input class="form-control" type="password" formControlName="password" required=""/>
+      </div>
+      <button class="btn btn-primary" [disabled]='!Formaddperson.valid' >Valider</button>
+    </form>
+  </div>
+
+</div>
+
+
+
+

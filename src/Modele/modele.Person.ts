@@ -4,6 +4,7 @@ export  class Addperson {
   firstname:string;
   lastname:string;
   email:string;
+  password:string;
 
   sports: any;
   locality:any;
@@ -14,6 +15,7 @@ export  class Addperson {
     this.email=" ";
     this.sports="";
     this.locality="";
+    this.password=" ";
   }
 
 }
