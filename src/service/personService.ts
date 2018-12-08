@@ -49,7 +49,7 @@ export class personService {
       })
     })
   } createPerson(addPerson:Addperson){
-    console.log(" servi ",addPerson)
+
     return this.https.post('http://localhost:8080/Person/Add', addPerson,)
   }
   recup(email:string){
